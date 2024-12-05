@@ -1,0 +1,6 @@
+services:
+  Kiwi\Contao\CmxBundle\Twig\BackendExtension:
+    arguments:
+      - '@contao.image.studio'
+    tags:
+      - 'twig.extension'

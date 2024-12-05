@@ -4,6 +4,7 @@ const path = require('path');
 
 const isProduction = process.env.NODE_ENV == 'production';
 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const stylesHandler = 'style-loader';
 
@@ -15,9 +16,11 @@ const config = {
         path: path.resolve(__dirname, '../public'),
     },
     plugins: [
-        // Add your plugins here
-        // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-    ],
+        new MiniCssExtractPlugin({
+            filename: "main.css",
+            chunkFilename: "[id].css",
+            ignoreOrder: false,
+        })],
     module: {
         rules: [
             {
@@ -30,7 +33,11 @@ const config = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: [stylesHandler, 'css-loader', 'sass-loader'],
+                use: [
+                    MiniCssExtractPlugin.loader, // extract css into files
+                    "css-loader", // convert css to js string css
+                    "sass-loader", // convert sass to css
+                ],
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,

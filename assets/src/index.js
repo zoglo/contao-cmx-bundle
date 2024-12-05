@@ -1,4 +1,5 @@
-import "./index.scss";
+import "./iconedSelect.scss";
+import "./ui.scss";
 import Choices from "choices.js";
 import "choices.js/public/assets/styles/choices.css";
 
