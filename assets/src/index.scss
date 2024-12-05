@@ -1,0 +1,38 @@
+.iconedSelect {
+  margin-top: 3px;
+  margin-bottom: 3px;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 16px;
+  }
+
+  .choices {
+    &[data-type*=select-one]::after{
+      border-color: #a1a1a1 transparent transparent transparent;
+      border-width: 7px 4px;
+      right: 7.5px;
+    }
+    &[data-type*=select-one].is-open::after{
+      border-color: transparent transparent #a1a1a1 transparent;
+      margin-top: -10px;
+    }
+
+    &__inner {
+      min-height: 29px;
+      padding: 5px 22px 6px 6px;
+      background: white;
+      border: 1px solid var(--form-border);
+      border-radius: 2px;
+    }
+
+    &__list {
+      &--single {
+        padding: 0;
+      }
+    }
+  }
+}
