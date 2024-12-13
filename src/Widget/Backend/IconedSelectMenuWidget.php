@@ -19,7 +19,7 @@ class IconedSelectMenuWidget extends SelectMenu
         $GLOBALS['TL_JAVASCRIPT'][]="/bundles/kiwicmx/main.js";
 
         $arrIcons=[];
-        $arrData = $GLOBALS['TL_DCA'][$this->strTable]['fields'][$this->strName];
+        $arrData = $GLOBALS['TL_DCA'][$this->strTable]['fields'][$this->strField];
         if (\is_array($arrData['icon_callback'] ?? null))
         {
             $arrCallback = $arrData['icon_callback'];
