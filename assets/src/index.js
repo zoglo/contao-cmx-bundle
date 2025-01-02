@@ -15,13 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 label: iconedOption.dataset.icon ? `<img src="${iconedOption.dataset.icon}"/> ${label}` : label,
                 id: iconedOption.value,
                 selected: iconedSelect.value == iconedOption.value,
+                customProperties: {
+                    label: label,
+                },
             })
         })
 
         const choices = new Choices(iconedSelect, {
             choices: arrOptions,
             allowHTML: true,
-            itemSelectText: ''
+            itemSelectText: '',
+            shouldSort: false,
+            searchFields: ['customProperties.label'],
         })
     })
 })

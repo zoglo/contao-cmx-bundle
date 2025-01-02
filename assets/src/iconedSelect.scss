@@ -28,6 +28,10 @@
       }
     }
 
+    &.is-focused{
+      z-index: 20;
+    }
+
     &__inner {
       display: flex;
       min-height: 29px;
@@ -42,7 +46,11 @@
       align-items: center;
       gap: 10px;
 
-      span{
+      &[data-value=""] {
+        color: #b7b7b7;
+      }
+
+      span {
         color: #cecece;
       }
     }
