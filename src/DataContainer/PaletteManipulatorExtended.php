@@ -3,6 +3,7 @@
 namespace Kiwi\Contao\CmxBundle\DataContainer;
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Contao\StringUtil;
 
 class PaletteManipulatorExtended extends PaletteManipulator
 {
@@ -29,5 +30,21 @@ class PaletteManipulatorExtended extends PaletteManipulator
         }
 
         return $this;
+    }
+
+    public function getPaletteFields(string $strPalette, string $table){
+        $arrPaletteSections = StringUtil::trimsplit(';',$GLOBALS['TL_DCA'][$table]['palettes'][$strPalette]);
+
+        $arrFields = [];
+
+        foreach ($arrPaletteSections ?? [] as $strPaletteSection){
+            $arrFields = array_merge($arrFields, StringUtil::trimsplit(',',$strPaletteSection));
+        }
+
+        return $arrFields;
+    }
+
+    public function hasField(string $strPalette, string $table, string $strField){
+        return in_array($strField,$this->getPaletteFields($strPalette, $table));
     }
 }
