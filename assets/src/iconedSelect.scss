@@ -45,6 +45,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      white-space: nowrap;
 
       &[data-value=""] {
         color: #b7b7b7;
@@ -56,6 +57,10 @@
     }
 
     &__list {
+      width: auto !important;
+      min-width: 100%;
+      max-width: unset;
+
       &--single {
         padding: 0;
       }
