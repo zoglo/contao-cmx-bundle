@@ -67,6 +67,8 @@
   top: 10px;
   opacity: 0.4;
   transition: 0.3s;
+  width: auto !important;
+  z-index:99;
 }
 .ui * {
   height: auto;

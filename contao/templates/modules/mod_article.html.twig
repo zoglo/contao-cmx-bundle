@@ -1,0 +1,6 @@
+{% extends "@Contao/mod_article.html5" %}
+
+{% block content %}
+    {{ parent() }}
+    {{ include('@Contao/ui/context.html.twig', {article: _context}) }}
+{% endblock %}

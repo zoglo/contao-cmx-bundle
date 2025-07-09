@@ -8,6 +8,8 @@
   top: 10px;
   opacity: .4;
   transition: .3s;
+  width: auto !important;
+  z-index:99;
 
   * {
     height: auto;
