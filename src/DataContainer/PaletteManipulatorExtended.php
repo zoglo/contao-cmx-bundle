@@ -2,6 +2,7 @@
 
 namespace Kiwi\Contao\CmxBundle\DataContainer;
 
+use Contao\Controller;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 use Contao\StringUtil;
 
@@ -45,6 +46,7 @@ class PaletteManipulatorExtended extends PaletteManipulator
     }
 
     public function hasField(string $strPalette, string $table, string $strField){
+        Controller::loadDataContainer($table);
         return in_array($strField,$this->getPaletteFields($strPalette, $table));
     }
 }
