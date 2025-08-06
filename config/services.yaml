@@ -1,6 +1,12 @@
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
   Kiwi\Contao\CmxBundle\Twig\BackendExtension:
     arguments:
       - '@contao.image.studio'
     tags:
       - 'twig.extension'
+  Kiwi\Contao\CmxBundle\DataContainer\PaletteManipulatorExtended: ~
+  Kiwi\Contao\CmxBundle\EventListener\LoadDataContainerListener: ~
+  Kiwi\Contao\CmxBundle\Widget\Backend\IconedSelectMenuWidget: ~
