@@ -9,4 +9,14 @@ services:
       - 'twig.extension'
   Kiwi\Contao\CmxBundle\DataContainer\PaletteManipulatorExtended: ~
   Kiwi\Contao\CmxBundle\EventListener\LoadDataContainerListener: ~
+  Kiwi\Contao\CmxBundle\EventListener\ReplaceInsertTagsListener:
+    arguments:
+      - '@contao.routing.content_url_generator'
   Kiwi\Contao\CmxBundle\Widget\Backend\IconedSelectMenuWidget: ~
+  contao_anchor.picker.anchor_provider:
+    class: Kiwi\Contao\CmxBundle\Picker\AnchorPickerProvider
+    arguments:
+      - '@knp_menu.factory'
+      - '@router'
+      - '@?translator'
+      - '@security.helper'
