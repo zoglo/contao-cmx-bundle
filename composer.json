@@ -1,8 +1,9 @@
 {
     "name": "kiwi/contao-cmx",
+    "keywords": ["contao", "cmx", "ux", "cms", "backend"],
     "type": "contao-bundle",
     "description": "This contao bundle contains several functionalities to enhance UX within the Contao CMS.",
-    "license": "proprietary",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Katrin Zimmermann",
@@ -32,3 +33,4 @@
         "contao-manager-plugin": "Kiwi\\Contao\\CmxBundle\\ContaoManager\\Plugin"
     }
 }
+
