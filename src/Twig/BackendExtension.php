@@ -14,6 +14,7 @@ class BackendExtension extends AbstractExtension
             new TwigFunction('csrf', [$this, 'getCSRF']),
             new TwigFunction('clipboard', [$this, 'getClipboard']),
             new TwigFunction('copiedArticle', [$this, 'getCopiedArticleId']),
+            new TwigFunction('isPreview', [$this, 'isPreview']),
         ];
     }
 
@@ -36,5 +37,10 @@ class BackendExtension extends AbstractExtension
         $arrClipboard = $objSession->get('CLIPBOARD');
 
         return ($arrClipboard['tl_article']['mode'] ?? false) == 'copy' ? $arrClipboard['tl_article']['id'] : false;
+    }
+
+    public function isPreview()
+    {
+        return System::getContainer()->get('request_stack')->getCurrentRequest()->attributes->get('_preview');
     }
 }
