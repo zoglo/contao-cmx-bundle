@@ -1,5 +1,5 @@
 {% block content %}
-    {% if app.environment == "dev" or contao.is_preview_mode %}
+    {% if app.environment == "dev" or isPreview() %}
         <div class="ui">
             <div class="ui__preview">
                 <div class="ui__elements">
