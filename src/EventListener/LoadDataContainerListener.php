@@ -11,14 +11,7 @@ class LoadDataContainerListener
 {
     public function __invoke(string $strTable): void
     {
-        $container = System::getContainer();
-        if ($container === null) {
-            return;
-        }
-
-        $request = $container->get('request_stack')->getCurrentRequest();
-
-        if ($container->get('contao.routing.scope_matcher')->isBackendRequest($request ?? Request::create('')) || (($_ENV['APP_ENV'] ?? '') === 'dev') || ($request?->attributes?->get('_preview') ?? false)) {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create('')) || ($_ENV['APP_ENV'] ?? false) == "dev" || System::getContainer()->get('request_stack')->getCurrentRequest()?->attributes?->get('_preview') ?? false) {
             $GLOBALS['TL_CSS'][] = "bundles/kiwicmx/main.css";
         }
     }
