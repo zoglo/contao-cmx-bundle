@@ -45,7 +45,7 @@ class ReplaceInsertTagsListener
             $id = 'article-' . $objArticle->id;
 
             // Generate the CSS ID if it is not set
-            if (empty($cssID = (StringUtil::deserialize($objArticle->cssID)[0])))
+            if (empty($cssID = StringUtil::deserialize($objArticle->cssID,true)[0] ?? ""))
             {
                 $cssID = $id;
             }
