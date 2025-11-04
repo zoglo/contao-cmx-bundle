@@ -29,18 +29,14 @@ class ReplaceInsertTagsListener
         $arrTag = explode('::', $strTag);
 
         if ($arrTag[0] == 'anchor_url') {
-            $objPage = System::getContainer()->get('request_stack')->getCurrentRequest()->attributes->get('pageModel');
             $objArticle = ArticleModel::findById($arrTag[1]);
 
-            if(!($objPage || $objArticle)){
+            if (!$objArticle) {
                 return "";
             }
 
-            $strUrl = "";
-            if($objPage->id != $objArticle->pid){
-                $objParentPage = PageModel::findById($objArticle->pid);
-                $strUrl = $this->pageResolverService->generate($objParentPage, [], UrlGeneratorInterface::RELATIVE_PATH);
-            }
+            $objParentPage = PageModel::findById($objArticle->pid);
+            $strUrl = $this->pageResolverService->generate($objParentPage);
 
             $id = 'article-' . $objArticle->id;
 
