@@ -2,6 +2,11 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
+  Kiwi\Contao\CmxBundle\Twig\FrontendExtension:
+    arguments:
+      - '@mime_types'
+    tags:
+      - 'twig.extension'
   Kiwi\Contao\CmxBundle\Twig\BackendExtension:
     arguments:
       - '@contao.image.studio'
